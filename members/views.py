@@ -8,8 +8,10 @@ from .models import Member
 def members(request):
     myMembers = Member.objects.all().values()
     template = loader.get_template("all_members.html")
+    randomDict = [{"key": 1}, {"key": 2}, {"key": 3}]
     context = {
-        "mymembers": myMembers
+        "mymembers": myMembers,
+        "randomNumber": randomDict,
     }
     return HttpResponse(template.render(context, request))
 
