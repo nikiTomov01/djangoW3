@@ -6,9 +6,35 @@
     <title>Document</title>
 </head>
 <body>
-    {% for x in fruits %}
-        <h1>{{ x }}</h1>
+
+    {% include "myMenu.html" with me="NIK" sponsor="BROKEE" %}
+    {% for elem in x %}
+        <h1
+            {% if forloop.first %}
+                style='background-color: lightblue;'
+            {% elif forloop.last %}
+                style="background-color: red;"
+            {% endif %}
+        >{{ elem }}</h1>
     {% endfor %}
+
+    {% comment "this is a test comment to see how it works" %}
+        <h1>Welcome ladies and gentlemen</h1>
+    {% endcomment %}
+
+    <h1>Hello {{ firstName }}, how are you? {# this is a smaller comment #}</h1>
+
+    {% if x is y %}
+        <h1>Hello</h1>
+    {% else %}
+        <h1>bye</h1>
+    {% endif %}
+
+    {% if x == y %}
+        <h1>Hello</h1>
+    {% else %}
+        <h1>bye</h1>
+    {% endif %}
 
     <p>In views.py you can see what the fruits variable looks like.</p>
 </body>
